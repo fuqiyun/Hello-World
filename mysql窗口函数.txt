@@ -1,0 +1,32 @@
+leetcode   180. 连续出现的数字
+
+MySQL解法，供大家参考：
+
+利用用户变量实现对连续出现的值进行计数：
+select distinct Num as ConsecutiveNums
+from (
+  select Num, 
+    case 
+      when @prev = Num then @count := @count + 1
+      when (@prev := Num) is not null then @count := 1
+    end as CNT
+  from Logs, (select @prev := null,@count := null) as t
+) as temp
+where temp.CNT >= 3
+
+与自关联或自连接相比，这种方法的效率更高，不受Logs表中的Id是否连续的限制，而且可以任意设定某个值连续出现的次数。
+
+针对评论区朋友的疑问，这里做下解答：
+
+1）逻辑：构建两个变量@prev 和@count ，前者用于与Num做比较判断，后者用于@prev和Num相等时的条件计数；
+2）(select @prev := null,@count := null) as t 这句的作用是初始化两个变量，
+并将初始化后的变量放到一张临时表t中，:=符号在MySQL中是赋值的意思；
+3）when @prev = Num then @count := @count + 1和when (@prev := Num) is not null then @count := 1 
+这两个语句不能交换顺序，赋值语句永远非NULL，所以一旦执行顺序来到了第二个when，
+@count 是一定会被赋值为1的，后者放到前面的话就达不到计数的目的；
+4）(@prev := Num) is not null这部分去掉后面加的判断，SQL也能正常执行，上面SQL中case when的这种用法，
+when后是判断条件，赋值后又加判断，我原以为这样会好理解点；
+5）case when本质是一个函数，有值时就返回内部处理得到的值，无值就返回NULL，针对每一个Num，
+上面SQL中的case when 都会有一个计数，并把这个计数返回给CNT。
+PS：MySQL8.0以后的版本开始支持窗口函数，使用窗口函数也能很好的解决此类问题。关于MySQL的窗口函数，可以参考译文：
+https://blog.csdn.net/qq_41080850/article/details/86416106
