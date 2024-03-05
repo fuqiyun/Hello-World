@@ -1,0 +1,28 @@
+@Version 是乐观锁
+乐观锁通常会使用版本号机制或者CAS算法来实现。这里主要回顾一下版本号机制，通常是在建表时，新增一个
+Version版本号字段，假设初始值为1.当多线程修改某条记录的时候，会先进行查询操作（包括版本号Version），后修改数据时，
+会判断查询出来的当前版本号是否与数据库中的一致，一致才会进行更新，并且对Version版本号进行加一操作，否则更新失败。
+应用场景：
+乐观锁适用于读多写少的场景，因为没有加锁，避免了锁竞争带来的性能消耗，所以吞吐量非常高。
+注意：
+@Version 注解仅支持的数据类型为 ： int，Integer，Long，Date，Timestamp，LocalDateTime
+整数类型下会执行 newVersion = oldVersion + 1
+newVersion会回写到实体类中
+仅支持updateBYId(id)  与 update (entity,wrapper)方法
+在update(entity,wrapper) 方法下，wrapper不能复用。
+
+
+借鉴地址： https://www.quanxiaoha.com/mybatis-plus/mybatisplus-optimistic-lock.html
+
+
+
+
+
+
+
+
+
+
+
+
+
