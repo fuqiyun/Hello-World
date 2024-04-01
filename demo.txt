@@ -2,3 +2,15 @@ gcc安装
 https://blog.csdn.net/tongxin_tongmeng/article/details/127882711
 redis 安装
 https://blog.csdn.net/qq_52227892/article/details/130649748
+账号密码正确  登不上去
+https://blog.csdn.net/lm_is_dc/article/details/120745701
+八股文
+https://doocs.github.io/advanced-java/#/
+
+nginx安装
+http://nginx.org/en/download.html
+参考地址
+https://www.zhihu.com/question/485480871/answer/3171444549?utm_id=0
+
+nacos安装
+https://zhuanlan.zhihu.com/p/661128469?utm_id=0
