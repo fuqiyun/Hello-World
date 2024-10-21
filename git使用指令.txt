@@ -1,0 +1,11 @@
+参考地址
+https://blog.csdn.net/qq_45796592/article/details/128953729
+
+
+
+git remote add origin url
+将本地仓库与远程仓库建立联系 origin 是给远程仓库定义的名字
+之后可以  git  pull   origin   master  拉代码  origin ： 远程仓库名字   master： 分支名字
+
+git clone url
+直接复制远程仓库代码

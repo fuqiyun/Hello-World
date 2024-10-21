@@ -1,0 +1,106 @@
+查看日志
+
+cat : 查看日志内容（不编辑）
+
+less 和 more  ：分页查看日志文件内容  less 允许向前翻页
+
+
+tail : 用于查看文件的最后几行，默认显示最后十行
+查看最后二十行：
+tail  -n 20  /path/demo.log
+
+实时跟踪日志文件末尾：
+tail  -f /path/demo.log
+
+grep : 用于搜索日志文件中的特定内容
+1、搜索关键字
+grep  "error" /path/demo.log
+2、实时搜索关键字
+tail -f /path/demo.log | grep "error"
+
+
+
+动态查看错误日志信息
+tail  -f test.log | grep '关键字'  实时查询关键字日志
+tail -f test.log   | grep error  动态读取日志内容，并显示包含error的信息
+tail -f test.log  | grep -C 3 error  检索结果前后3行一并输出
+tail -f test.log  | grep -C  3 -i -E 'search_term_1 | search_term_2' 包含多个检索词
+
+echo
+echo "abc" >> a.txt  从文件结尾追加
+echo "abc" > a.txt   从文件开头覆盖写入
+
+more-less
+翻页查看整个文件内容，一般配合管道符使用
+less 更灵活，可以前后翻页
+cat  -n test.log | more
+命令：
+enter  向下n行，需要定义，默认一行
+space： 翻页
+ctrl b  返回上一页
+v  调用ci编辑器
+/关键字  在当前显示内容向下查找关键字
+:/  显示文件名以及当前位置行号
+q 退出
+
+
+
+cat -n test.log | less
+
+?关键字 向上查找
+g 跳转第一行
+G 跳转到最后一行
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
