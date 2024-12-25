@@ -1,6 +1,9 @@
 参考地址
 https://blog.csdn.net/qq_45796592/article/details/128953729
 
+git config --global user.name 浅风    设置用户签名
+git config --global user.email 480364455@qq.com     设置用户签名
+
 
 
 git remote add origin url
