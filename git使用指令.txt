@@ -1,0 +1,146 @@
+参考地址
+https://blog.csdn.net/qq_45796592/article/details/128953729
+
+git config --global user.name 浅风    设置用户签名
+git config --global user.email 480364455@qq.com     设置用户签名
+
+
+
+git remote add origin url
+将本地仓库与远程仓库建立联系 origin 是给远程仓库定义的名字
+先 git clone url
+直接复制远程仓库代码
+
+之后可以  git  pull   origin   master  拉代码  origin ： 远程仓库名字   master： 分支名字
+
+
+分支常用指令
+参考地址：
+https://blog.csdn.net/zwhszdx/article/details/138910364
+
+#列出本地分支
+git branch 
+
+#列出远程分支
+git branch -a
+
+
+
+
+# 按最近提交日期排序列出分支
+git branch --sort=-committerdate
+# 列出已经合并到主分支的分支
+git branch --merged main
+# 列出尚未合并的分支
+git branch --no-merged
+# 列出分支及其上游和最后的提交信息
+git branch -vv
+# 查看当前所在分支
+git branch --show-current
+# 查看分支的详细信息，显示所有分支的提交历史
+git show-branch
+# 查看特定分支的提交日志
+git log branch-name
+ 
+
+
+创建和重命名分支
+#创建一个分支并切换到该分支 branch 好像不切
+git branch new-branch
+git checkout new-branch
+
+#创建分支并且立即切换
+git checkout -b new-branch
+
+#重命名分支
+git branch -m old-branch new-branch
+# 将新的分支名字提交到远程仓库
+git push origin(定义的连接远程仓库的名字)  new-branch 
+
+
+删除分支
+#删除本地分支
+git branch -d existing-branch 
+
+#强制删除本地未合并的分支
+git branch -D existing-branch 
+# 删除远程仓库的分支
+git push  origin  --delete  branch-name
+
+#合并分支
+git merge branch-name
+
+#取消合并（遇到冲突时恢复合并前的状态）
+git merge --abort
+
+# 拉取最新的远程分支信息
+git fetch origin
+# 拉取并合并远程分支
+git pull origin branch-name
+# 设置当前分支的上游分支
+git branch --set-upstream-to=origin/branch-name
+# 取消跟踪上游分支
+git branch --unset-upstream
+ 
+
+
+ 比较分支
+ git diff  branch1  branch2
+
+ 完整的分支操作流程
+ #切换到新的分支
+ git checkout  new-branch
+
+git add .
+git commit -m 'add'
+
+#切换到主分支
+git checkout master
+
+#合并分支
+git merge  master new-branch
+
+#删除合并完的分支
+git branch -d new-branch 
+
+#提交到远程仓库
+git push origin master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
