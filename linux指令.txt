@@ -47,9 +47,55 @@ q 退出
 
 cat -n test.log | less
 
-?关键字 向上查找
+?关键字 向上查找 
+/关键字 向下查找
+n 查询下一个关键字
 g 跳转第一行
 G 跳转到最后一行
+
+
+
+
+view指令
+view是以只读的形式去读取一个文件
+比如
+view demo.txt  等价于  vim -R demo.txt  或  vim --readonly demo.txt
+进去之后
+:set nu  显示行号
+:set nonu  取消显示行号
+
+
+将制定的行号输出到指定文件中（文件内）
+:10,20w output.txt
+这里的10,20 是行号范围，w是写入指令，output是目标文件名
+
+使用sed指令（文件外输出）
+sed -n '10,20p' sourcefile.txt > output.txt
+这里的-n选项告诉sed只打印那些被p命令指定的行，10,20 是行号范围，sourcefile是源文件，
+>是重定向操作符，output是目标文件
+
+
+这个不常用
+head -n 20 sourcefile.txt | tail -n 11 > output.txt
+上面的命令会提取源文件的前20行，然后从中取出最后11行（即第10行到第20行，假设你想要的是连续的行）
+
+
+
+
+
+
+文件退出指令
+:wq!  强制保存退出
+:q!   不保存退出
+！强制指令
+:qa!  强制退出所有的正在编辑的文件（不会保存）
+
+
+
+
+
+
+
 
 
 
