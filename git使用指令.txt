@@ -113,8 +113,15 @@ git push origin master
 
 
 
+github找项目
+https://www.cnblogs.com/mq0036/p/18047518
+in:description 并发 stars:>=2000 language:java  
 
 
+
+
+查看连接的远程仓库的名称
+git remote | xargs -n1
 
 
 

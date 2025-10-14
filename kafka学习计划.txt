@@ -1,0 +1,200 @@
+Kafka 学习任务计划
+学习目标
+理解 Kafka 的核心概念与架构
+掌握 Kafka 的安装、配置与运维
+熟练使用 Kafka 的 Java API 进行开发
+了解 Kafka 的性能优化与监控
+能够设计和实现基于 Kafka 的分布式系统
+学习阶段规划
+第一阶段：基础理论（1-2周）
+学习内容
+Kafka 简介与核心概念
+什么是 Kafka
+消息队列 vs 流处理平台
+Kafka 的核心概念：Topic、Partition、Producer、Consumer、Broker
+Kafka 架构原理
+分布式架构设计
+数据存储机制
+副本与容错机制
+消息传递语义
+推荐资源
+官方文档：https://kafka.apache.org/documentation/
+Kafka 权威指南：https://book.douban.com/subject/27665114/
+博客推荐：
+https://www.confluent.io/blog/
+https://kafka.apache.org/blog/
+https://www.iteye.com/blog/tag/Kafka
+学习任务
+[ ] 阅读 Kafka 官方文档前 3 章
+[ ] 理解 Topic、Partition、Producer、Consumer 的概念
+[ ] 了解 Kafka 的分布式架构
+[ ] 完成概念理解测试
+第二阶段：环境搭建与基础操作（1周）
+学习内容
+Kafka 安装与配置
+单机环境搭建
+集群环境搭建
+配置文件详解
+基础命令行操作
+Topic 管理
+Producer 发送消息
+Consumer 消费消息
+监控与管理
+推荐资源
+安装指南：https://kafka.apache.org/quickstart
+配置参考：https://kafka.apache.org/documentation/#configuration
+视频教程：B站搜索 "Kafka 入门教程"
+学习任务
+[ ] 在本地搭建 Kafka 单机环境
+[ ] 创建第一个 Topic
+[ ] 使用命令行发送和消费消息
+[ ] 搭建 3 节点 Kafka 集群
+[ ] 测试集群的容错性
+第三阶段：Java API 开发（2-3周）
+学习内容
+Producer API
+同步/异步发送
+消息确认机制
+自定义序列化器
+分区策略
+Consumer API
+消费者组概念
+偏移量管理
+手动/自动提交
+重平衡机制
+高级特性
+事务支持
+流处理（Kafka Streams）
+连接器（Kafka Connect）
+推荐资源
+Java API 文档：https://kafka.apache.org/documentation/#api
+代码示例：https://github.com/apache/kafka/tree/trunk/examples
+博客推荐：
+https://www.cnblogs.com/huxi2b/p/6223222.html
+https://blog.csdn.net/lizhitao/article/details/39499283
+学习任务
+[ ] 实现简单的 Producer 程序
+[ ] 实现简单的 Consumer 程序
+[ ] 实现消费者组消费
+[ ] 实现自定义分区策略
+[ ] 实现消息确认机制
+[ ] 完成 API 使用练习
+第四阶段：实战项目（2-3周）
+项目选择
+日志收集系统
+使用 Kafka 收集应用日志
+实现日志的实时处理
+集成 ELK 栈
+实时数据管道
+从数据库到 Kafka 的数据同步
+实时数据转换与处理
+数据落地到目标系统
+消息通知系统
+基于 Kafka 的消息推送
+支持多种消息类型
+实现消息的可靠传递
+学习任务
+[ ] 选择并完成一个实战项目
+[ ] 设计系统架构
+[ ] 实现核心功能
+[ ] 测试系统性能
+[ ] 编写项目文档
+第五阶段：高级特性与优化（1-2周）
+学习内容
+性能优化
+生产者性能调优
+消费者性能调优
+网络与存储优化
+监控与运维
+JMX 监控
+日志分析
+故障排查
+安全特性
+认证与授权
+加密传输
+访问控制
+推荐资源
+性能调优指南：https://kafka.apache.org/documentation/#operations
+监控工具：https://github.com/linkedin/kafka-monitor
+博客推荐：
+https://www.confluent.io/blog/apache-kafka-performance-results/
+https://kafka.apache.org/documentation/#security
+学习任务
+[ ] 学习性能调优参数
+[ ] 搭建监控系统
+[ ] 实现安全配置
+[ ] 完成性能测试
+[ ] 编写运维手册
+第六阶段：生态集成（1-2周）
+学习内容
+Kafka 生态
+Kafka Streams
+Kafka Connect
+Schema Registry
+与其他系统集成
+Spring Boot 集成
+数据库集成
+消息队列集成
+推荐资源
+Kafka Streams：https://kafka.apache.org/documentation/streams/
+Kafka Connect：https://kafka.apache.org/documentation/#connect
+Spring Kafka：https://spring.io/projects/spring-kafka
+学习任务
+[ ] 学习 Kafka Streams
+[ ] 实现数据流处理
+[ ] 集成 Spring Boot
+[ ] 完成生态集成练习
+学习资源汇总
+官方资源
+Kafka 官网：https://kafka.apache.org/
+官方文档：https://kafka.apache.org/documentation/
+GitHub 仓库：https://github.com/apache/kafka
+邮件列表：https://kafka.apache.org/contact
+书籍推荐
+Kafka 权威指南 - 作者：Neha Narkhede
+Kafka 实战 - 作者：胡夕
+Apache Kafka 实战 - 作者：胡夕
+在线课程
+Coursera：搜索 "Apache Kafka"
+Udemy：搜索 "Kafka Complete Guide"
+B站：搜索 "Kafka 教程"
+博客与社区
+Confluent Blog：https://www.confluent.io/blog/
+Kafka 中文社区：https://www.kafka.net.cn/
+CSDN Kafka 专栏：https://blog.csdn.net/column/details/kafka.html
+掘金 Kafka 标签：https://juejin.cn/tag/Kafka
+工具推荐
+Kafka Manager：https://github.com/yahoo/kafka-manager
+Kafka Eagle：https://github.com/smartloli/kafka-eagle
+Kafka Tool：https://www.kafkatool.com/
+学习建议
+学习方法
+理论与实践结合：边学边练
+循序渐进：按阶段推进
+项目驱动：以项目巩固
+社区参与：交流与分享
+时间安排
+每日学习时间：1-2 小时
+周末实践时间：3-4 小时
+总学习周期：8-12 周
+学习检查点
+[ ] 完成第一阶段理论学习
+[ ] 搭建完成 Kafka 环境
+[ ] 实现第一个 Java 程序
+[ ] 完成实战项目
+[ ] 掌握高级特性
+[ ] 完成生态集成
+进阶学习方向
+技术深度
+Kafka 源码阅读
+性能调优专家
+架构设计专家
+技术广度
+大数据生态集成
+微服务架构
+云原生部署
+职业发展
+大数据工程师
+架构师
+技术专家
+按此计划学习 Kafka，约 2-3 个月可掌握核心技能。
