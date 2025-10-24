@@ -1,0 +1,114 @@
+
+
+账号root
+密码 Fu123456!
+redis安装教程
+https://juejin.cn/post/7311603519600902185
+redis 下载地址
+http://download.redis.io/releases/redis-5.0.7.tar.gz
+
+
+Linux登录redis  -a后面是密码
+redis-cli -p 6379 -a redis@123
+
+
+ systemctl status firewalld    #查看防火墙状态
+
+ 关闭redis
+ ./bin/redis-cli shutdown
+启动redis
+ ./bin/redis-server redis.conf
+
+
+Linux安装mysql
+注意点
+bin/mysqld --initialize --user=mysql 启动之后会给一个临时密码 记得存下
+2025-03-27T09:37:55.137492Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: 
+
+https://zhuanlan.zhihu.com/p/17623512275
+启动之后需要开放端口
+添加端口
+firewall-cmd --add-port=端口号/tcp --permanent
+
+加载规则
+firewall-cmd --reload
+
+# 启动 停止 重启 mysql
+systemctl stop|restart|start mysql
+#查看mysql端口和进程ID
+netstat  -ntulp | grep 'mysql'
+
+
+linux 安装jdk
+
+解压jdk  需要到系统盘 解压jdk  使用绝对路径  /usr/local  这种
+tar -zxvf jdk.tar.gz
+
+然后  /etc/profile  文件中加上  
+
+#jdk
+#jdk安装目录
+export JAVA_HOME=/usr/local/jdk/jdk1.8.0_144 
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export PATH=$PATH:${JAVA_PATH}
+
+然后 重新加载配置
+source /etc/profile
+最后 java -version
+
+
+
+Linux安装tomcat
+
+wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.87/bin/apache-tomcat-8.5.87.tar.gz
+
+# 解压
+tar -zxvf apache-tomcat-8.5.87.tar.gz
+
+vim /etc/profile
+export CATALINA_HOME=/opt/apache-tomcat-8.5.87
+ 
+# 生效命令
+source /etc/profile
+# 启动
+cd /opt/apache-tomcat-8.5.87
+./startup.sh
+
+
+
+连接本地mysql提示无权限（ message from server: "Host 'fqy' is not allowed to connect to this MySQL server"）
+
+解决方法:
+打开 MySQL 配置文件（路径因操作系统而异）：
+
+Linux: /etc/mysql/my.cnf 或 /etc/my.cnf
+Windows: C:\ProgramData\MySQL\MySQL Server X.X\my.ini
+找到 bind-address 配置项，将其改为：
+
+bind-address = 0.0.0.0
+ 重启 MySQL 服务以应用更改
+
+任务管理器--服务--mysql--右键重启
+ 
+https://blog.csdn.net/2301_77594864/article/details/146249581
+
+
+
+错误：Failed to start bean 'dcumentationPluginsBootstrapper'; nested exception is java.lang.ullpointerException
+https://www.cnblogs.com/shaowangwu/p/16260653.html
+
+mysql账号密码
+root
+123
+
+
+防火墙
+1、启动FirewallD服务命令：
+
+systemctl start firewalld.service #开启服务
+systemctl enable firewalld.service #设置开机启动
+2、查看FirewallD防火墙状态：
+
+systemctl status firewalld

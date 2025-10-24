@@ -1,0 +1,51 @@
+kafka核心角色
+生产者、消费者、broker、zookeeper
+
+broker由下面几个角色来组成
+topic（表名） 、 partition （分表存数据）、replication（对partition进行备份，分配到所有broker上）、 Leader&Follower
+
+
+
+
+
+zookeeper日志文件存在
+D:\tool\zookeeper\apache-zookeeper-3.8.4-bin\conf\zoo.cfg
+
+
+# 启动
+.\bin\windows\kafka-server-start.bat  .\config\server.properties
+
+
+#  创建主体
+.\d:\kafka_2.12-3.9.1\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic test-topic --partitions 3 --replication-factor 1
+
+
+# 查看所有 topic
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+# 查看指定 topic 详情
+.\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9092 --topic test-topic
+
+# 存储value
+.\kafka-topics.bat --create --bootstrap-server localhost:9092   --topic test-topic
+
+
+# 存储key-value，冒号分割
+.\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic test-topic --property "parse.key=true" --property "key.separator=:"
+
+# 生产者
+.\kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic
+
+# 消费者
+.\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+
+
+
+ 
+
+ Partition: 0  Leader: 1  Replicas: 1  Isr: 1
+
+ 翻译：
+Replicas: 1 表示分区 0 的副本存储在 broker 1
+Leader: 1 表示 broker 1 是该分区的 Leader
+Isr: 1 表示同步副本仅为 broker 1
