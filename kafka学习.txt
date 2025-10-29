@@ -49,3 +49,41 @@ D:\tool\zookeeper\apache-zookeeper-3.8.4-bin\conf\zoo.cfg
 Replicas: 1 表示分区 0 的副本存储在 broker 1
 Leader: 1 表示 broker 1 是该分区的 Leader
 Isr: 1 表示同步副本仅为 broker 1
+
+
+
+
+知识点：
+在同一个消费者组内，消息只会被消费一次（但由组内的一个消费者处理）
+1、kafka消费者组的核心机制
+ 消费者组的作用：一个消费者订阅一个主题（Topic），组内所有消费者共同消费该主题的信息。组会跟踪偏移量（offset） ，确保每条消息在组内只被处理一次。
+ 分区（partition）匹配：Kafka主题被分为多个分区。组内多个消费者会自动分配这些分区（Rebalance）。每个分区只分配给组内的一个消费者。 
+示例：如果主题有三个分区，组内有两个消费者：
+消费者A肯呢个分配带分区0和1
+消费者B分配到分区2
+落在分区1的消息只会被消费者A处理，不会发送给B 
+
+2、kafka有key和无key消息是怎么分区的
+有key
+    如果有key，kafka计算key的哈希值（使用Murmur算法）没然后取模分区数：partition = utils.abs(utils.murmur2(keyBytes)) % numPartitions
+    相同key的消息总是分配到同一个分区，保证了这些消息在分区内的顺序
+无key
+    如果没有消息key，kafka使用轮询策略：消息依次分配到可用分区（基于生产者内部的批次）。
+    具体：在生产者缓冲区（Batch）中，消息会轮询所有分区，确保均匀分布。
+
+
+
+Linux启动kafka必须加
+# 添加这个（必须，用于外部客户端连接您的公网 IP）
+advertised.listeners=PLAINTEXT://123.56.90.53:9092
+
+
+
+
+
+
+#todo
+listeners=PLAINTEXT://:9092
+# 添加这个（必须，用于外部客户端连接您的公网 IP）
+advertised.listeners=PLAINTEXT://123.56.90.53:9092
+
